@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container{
+        background-color: black;
+        color: antiquewhite;
+        height: 500px;
+        margin: 30px 20px 40px 500px;
+        width: 500px;
+        padding-left: 60px;
+        border-radius: 20px;
+    }
+    #date{
+        padding: 5px 30px;
+        font-size: 20px;
+        margin-top: 30px;
+    }
+    label{
+        font-size: 25px;
+    }
+    h1{
+        font-size: 40px;
+        padding-top: 60px;
+        padding-left: 90px;
+        margin-left: 20px;
+        padding-bottom: 40px;
+    }
+    #btn{
+        padding: 5px 100px;
+        font-size: 20px;
+        margin-top: 30px;
+        border: 2px solid red;
+        border-radius: 30px;
+        background-color: rgb(83, 20, 20);
+        color: antiquewhite;
+    }
+    #age{
+        font-size: 30px;
+        padding-top: 20px;
+    }
+    @media (max-width:700px)
+    {
+        .container{
+            background-color: red;
+            color: aliceblue;
+            width: 300px;
+        }
+    }
+
+</style>
+<body>
+    <div class="container">
+    <h1>Age Counter</h1>
+    <label for="">Wht is your age</label><br>
+    <input type="Date" id="date"><br><br>
+    <input type="button" value="Calculate value" id="btn"><br>
+    <p id="age">Your age is:</p>
+    </div>
+    <script>
+        var date_birth=document.getElementById("date")
+        var button=document.getElementById("btn")
+        var age=document.getElementById("age")
+        button.addEventListener("click",()=>{
+            if(date_birth.value==="")
+            {
+                alert("Please select your date of birth")
+            }
+            else{
+                console.log(date_birth.value)
+                var dob=new Date(date_birth.value)
+                console.log("dob"+dob)
+                var dob_year=dob.getFullYear();
+                console.log(dob_year)
+                var now=new Date()
+                console.log(now)
+                var now_year=now.getFullYear()
+                console.log(now_year)
+                var totalage=now_year-dob_year;
+                age.innerHTML="Your age is:"+totalage
+            }
+})
+        
+    </script>
+    
+</body>
+</html>
